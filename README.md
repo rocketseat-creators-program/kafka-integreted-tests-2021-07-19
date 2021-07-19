@@ -10,6 +10,16 @@ Para executar os testes utilizar
 
 ``` ./gradlew test```
 
+## Zookeper e brokers do Kafka
+Para dar um start no Zookeper, utilize:
+
+``` ./zookeeper-server-start.sh ../config/zookeeper.properties```
+
+Depois para dar start no kafka broker, utilize:
+
+``` ./kafka-server-start.sh ../config/server.properties```
+
+> Nāo é mandatorio ter tudo isso rodando local, ate por que nos nossos testes estaremos usando Kafka Embedded ;). Mas e importante ter o Kafka instalado local, ou ao menos via imagem docker.
 
 ## Expert
 | [<img src="https://avatars.githubusercontent.com/u/42419543?v=4" width="75px;"/>](https://github.com/anabneri) |
