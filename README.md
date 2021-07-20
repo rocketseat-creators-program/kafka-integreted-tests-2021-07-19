@@ -19,6 +19,17 @@ Depois para dar start no kafka broker, utilize:
 
 ``` ./kafka-server-start.sh ../config/server.properties```
 
+Parar parar com algum servidor e executar os testes utilizando o Embedded Kafka, utilize:
+
+```sudo lsof -PiTCP -sTCP:LISTEN```
+
+e depois
+
+```kill <PID>```
+
+Assim conseguimos garantir que nāo tenha nada rodando em segundo plano.
+
+
 > Nāo é mandatorio ter tudo isso rodando local, ate por que nos nossos testes estaremos usando Kafka Embedded ;). Mas e importante ter o Kafka instalado local, ou ao menos via imagem docker.
 
 ## Expert
