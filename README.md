@@ -19,11 +19,13 @@ Depois para dar start no kafka broker, utilize:
 
 ``` ./kafka-server-start.sh ../config/server.properties```
 
-Parar parar com algum servidor e executar os testes utilizando o Embedded Kafka, utilize:
+## Caso o Zookeper e os Brokers nao parem quando você quiser matar seus processos no terminal, faça o seguinte:
+
+Este comando lista as portas que estāo em uso:
 
 ```sudo lsof -PiTCP -sTCP:LISTEN```
 
-e depois
+e depois mate o processo desta port, com usando seu PID correspondente:
 
 ```kill <PID>```
 
