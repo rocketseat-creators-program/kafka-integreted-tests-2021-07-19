@@ -69,13 +69,12 @@ public class BookStoreEventControllerIntgTest {
         headers.set("content-type", MediaType.APPLICATION_JSON.toString());
         HttpEntity<BookStoreEvent> request = new HttpEntity<>(bookStoreEvent);
 
+
         //when
       ResponseEntity<BookStoreEvent> responseEntity =  restTemplate.exchange("/v1/bookstore-event", HttpMethod.POST, request, BookStoreEvent.class);
 
         //then
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
-
-        // mostrar que sem os servidores os testes integrados nao rodam
 
         ConsumerRecord<Integer, String> consumerRecord = KafkaTestUtils.getSingleRecord(consumer, "bookstore-events");
         Thread.sleep(3000);

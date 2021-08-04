@@ -29,20 +29,19 @@ public class BookStoreEventController {
         // um novo livro e adicionado na bilioca online
         bookStoreEvent.setBookStoreEventType(BookStoreEventType.NEW);
         // dispara o evento
-        bookStoreEventProducer.senBookStoreEvent_Approach2(bookStoreEvent);
+        bookStoreEventProducer.sendBookStoreEvent(bookStoreEvent);
         return ResponseEntity.status(HttpStatus.CREATED).body(bookStoreEvent);
     }
 
     @PutMapping("/v1/bookstore-event")
     public ResponseEntity<?> putLibraryEvent(@RequestBody @Valid BookStoreEvent bookStoreEvent) throws JsonProcessingException, ExecutionException, InterruptedException {
 
-
         if(bookStoreEvent.getBookStoreEventId() == null){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Eai parca passa o bookStoreEventId aeeee senao nao rola");
         }
 
         bookStoreEvent.setBookStoreEventType(BookStoreEventType.UPDATE);
-        bookStoreEventProducer.senBookStoreEvent_Approach2(bookStoreEvent);
+        bookStoreEventProducer.sendBookStoreEvent(bookStoreEvent);
         return ResponseEntity.status(HttpStatus.OK).body(bookStoreEvent);
     }
 }
